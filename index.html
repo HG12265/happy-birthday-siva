@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Siva! ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Starfield Background -->
+    <div id="starfield"></div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" src="/song.mp3" loop preload="auto"></audio>
+
+    <!-- Floating Music Player -->
+    <div id="music-player" class="music-player hidden-player">
+      <button id="music-toggle" class="music-toggle-btn" title="Toggle Music">
+        <div class="sound-bars" id="sound-bars">
+          <span class="bar b1"></span>
+          <span class="bar b2"></span>
+          <span class="bar b3"></span>
+          <span class="bar b4"></span>
+          <span class="bar b5"></span>
+        </div>
+        <span class="mute-icon" id="mute-icon">🔇</span>
+      </button>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loader-overlay">
+      <div class="loader-content">
+        <div class="sparkle"></div>
+        <p>Creating Magic...</p>
+      </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="hidden">
+
+      <!-- Slide 1: Hero -->
+      <section class="slide" id="slide-1">
+        <div class="hero-bg" style="background-image: url('/hero-bg.png')"></div>
+        <div class="hero-overlay"></div>
+        <div class="slide-content">
+          <h2 class="sub-greeting">To my amazing best friend...</h2>
+          <h1 class="main-title">Happy Birthday <span class="highlight">di Siva</span></h1>
+          <button class="btn-next" data-next="2">Let's Celebrate di Siva →</button>
+        </div>
+      </section>
+
+      <!-- Slide 2: Message -->
+      <section class="slide" id="slide-2">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content glass">
+          <div class="message-card">
+            <span class="quote-icon">"</span>
+            <p class="birthday-wish">
+              Wishing you a day filled with laughter, love, and all the things that make you happy, Siva!
+              You're more than a best friend, you're family. ✨
+            </p>
+            <button class="btn-next" data-next="3">Next Surprise →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: Interactive Balloon Game -->
+      <section class="slide" id="slide-3">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content">
+          <h2 class="game-info">Burst 8 Balloons to Reveal! 🎈</h2>
+          <div id="balloon-container"></div>
+
+          <div id="game-modal" class="modal-overlay hidden">
+            <div class="modal-card glass">
+              <h3 class="modal-title">Happy Birthday SIVA! 🎂</h3>
+              <p class="modal-msg">
+                "Ennoda college life enaku kedaichcha best best friend nee mattum than , unnoda intha birthday va naa
+                kandipa unaku konjam special ah change pannuven and wish you happy birthday my dear friend 🫂🤗✨"
+              </p>
+              <button class="btn-next" data-next="4">Our Journey ❤️</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Story Part 1 -->
+      <section class="slide" id="slide-4">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content story-step">
+          <h2 class="story-title">Our Small Story ✨</h2>
+          <div class="story-item premium-card">
+            <h3>Classmates First 🏫</h3>
+            <p>College starting la namba pesave illa... yarunne theriyama irundhom.</p>
+            <button class="btn-next" data-next="5">And then... →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: Story Part 2 -->
+      <section class="slide" id="slide-5">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content story-step">
+          <div class="story-item premium-card">
+            <h3>The 'Anna' Moment 😅</h3>
+            <p>First time nee enna 'Anna' nu koopta... kooptu Key kuduththa aprom anna nu kooptathuku konja neram aprom
+              sorry sonna.. Naa mandaiya aattitu poiten, nee kadupaitaa! 😂</p>
+            <button class="btn-next" data-next="6">But... →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Story Part 3 -->
+      <section class="slide" id="slide-6">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content story-step">
+          <div class="story-item premium-card">
+            <h3>Best Friends Forever 🫂</h3>
+            <p>Sanda vanthuruku, but oru time kooda pirinjathu illa. Intha journey unbreakable ah irukanum!</p>
+            <div class="final-words">
+              <strong>Final Words...</strong>
+              <p>"Intha journey innum so many years ku unbreakable ah irukkanum di paithiyamae! 🤝✨"</p>
+            </div>
+            <button class="btn-next" data-next="7">Reasons Why →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Flip Cards - Reasons You're My Best Friend -->
+      <section class="slide" id="slide-7">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content glass" style="padding: 2rem 2rem 3rem; max-width: 1100px;">
+          <h2 class="story-title">Reasons You're My Best Friend</h2>
+          <p class="flip-hint">Tap any card to flip it and reveal the surprise reason.</p>
+          <div class="flip-grid">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">🎯</span>
+                  <h3>Always Got My Back</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>From every challenge to every triumph, you are the one who never lets me walk alone.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">😂</span>
+                  <h3>Unstoppable Laughter</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>Our funniest moments are my favorite memories — you turn every day into something worth smiling
+                    about.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">🛡️</span>
+                  <h3>Trust Like No Other</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>You are the person I can share anything with, because I know you will always understand.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">⚡</span>
+                  <h3>Pure Energy</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>Your energy lights up every room and every plan feels more exciting with you around.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">🎵</span>
+                  <h3>Shared Songs</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>Every inside joke and song we share makes our friendship feel unforgettable.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">🌟</span>
+                  <h3>Always Inspires Me</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>You push me to be better, dream bigger, and celebrate the best version of myself.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">🚀</span>
+                  <h3>Adventure Partner</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>Every crazy adventure with you becomes the kind of story we tell forever.</p>
+                </div>
+              </div>
+            </div>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <span class="icon">💛</span>
+                  <h3>Heart of Gold</h3>
+                </div>
+                <div class="flip-card-back">
+                  <p>Your kindness is the reason everyone feels safe, seen, and loved around you.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn-next" data-next="8">Memory Wall →</button>
+        </div>
+      </section>
+
+      <!-- Slide 8: Memory Wall Gallery -->
+      <section class="slide" id="slide-8">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content gallery-container">
+          <h2 class="story-title">Memory Wall ✨</h2>
+          <div class="gallery-grid">
+            <div class="memory-card polaroid rotated-left">
+              <img src="/gallery/m1.jpg" alt="Memory 1">
+              <span>Crime Partner 🏫</span>
+            </div>
+            <div class="memory-card polaroid rotated-right">
+              <img src="/gallery/m2.jpg" alt="Memory 2">
+              <span>Best Moments ❤️</span>
+            </div>
+            <div class="memory-card polaroid">
+              <img src="/gallery/m3.jpg" alt="Memory 3">
+              <span>Happy Face 😊</span>
+            </div>
+            <div class="memory-card polaroid rotated-left">
+              <img src="/gallery/m4.jpg" alt="Memory 4">
+              <span>Together Always 🫂</span>
+            </div>
+            <div class="memory-card polaroid rotated-right">
+              <img src="/gallery/m5.jpg" alt="Memory 5">
+              <span>Celebration 🎂</span>
+            </div>
+          </div>
+          <button class="btn-next" data-next="9" style="margin-top: 3rem;">Go to Next →</button>
+        </div>
+      </section>
+
+      <!-- Slide 9: Cake Cutting -->
+      <section class="slide" id="slide-9">
+        <div class="cake-bg-overlay"></div>
+        <!-- Floating sparkle decorations -->
+        <div class="cake-sparkles">
+          <div class="cake-sparkle s1">✦</div>
+          <div class="cake-sparkle s2">✧</div>
+          <div class="cake-sparkle s3">✦</div>
+          <div class="cake-sparkle s4">⋆</div>
+          <div class="cake-sparkle s5">✧</div>
+          <div class="cake-sparkle s6">✦</div>
+          <div class="cake-sparkle s7">⋆</div>
+          <div class="cake-sparkle s8">✧</div>
+        </div>
+
+        <div class="slide-content cake-slide">
+          <h2 class="cake-title">
+            <span class="cake-title-icon">🎂</span>
+            <span class="cake-title-text">Time to Cut the Cake!</span>
+            <span class="cake-title-sub">Make a wish, Siva...</span>
+          </h2>
+
+          <div class="cake-stage">
+            <!-- Glow behind the cake -->
+            <div class="cake-glow"></div>
+
+            <div class="cake-wrapper">
+              <!-- CSS Birthday Cake -->
+              <div class="cake">
+                <!-- Candles with smoke -->
+                <div class="candles">
+                  <div class="candle-group">
+                    <div class="candle">
+                      <div class="flame"></div>
+                      <div class="smoke-puff"></div>
+                    </div>
+                  </div>
+                  <div class="candle-group">
+                    <div class="candle">
+                      <div class="flame"></div>
+                      <div class="smoke-puff"></div>
+                    </div>
+                  </div>
+                  <div class="candle-group">
+                    <div class="candle candle-tall">
+                      <div class="flame flame-big"></div>
+                      <div class="smoke-puff"></div>
+                    </div>
+                  </div>
+                  <div class="candle-group">
+                    <div class="candle">
+                      <div class="flame"></div>
+                      <div class="smoke-puff"></div>
+                    </div>
+                  </div>
+                  <div class="candle-group">
+                    <div class="candle">
+                      <div class="flame"></div>
+                      <div class="smoke-puff"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Top layer with frosting & decorations -->
+                <div class="cake-layer layer-top">
+                  <div class="frosting-top"></div>
+                  <div class="drip drip-1"></div>
+                  <div class="drip drip-2"></div>
+                  <div class="drip drip-3"></div>
+                  <div class="drip drip-4"></div>
+                  <div class="drip drip-5"></div>
+                  <div class="cake-text">SIVA</div>
+                  <div class="cherry cherry-1"></div>
+                  <div class="cherry cherry-2"></div>
+                  <div class="cherry cherry-3"></div>
+                </div>
+
+                <!-- Cream separator -->
+                <div class="cream-border cream-1"></div>
+
+                <!-- Middle layer with dots -->
+                <div class="cake-layer layer-mid">
+                  <div class="cake-dots">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <!-- Cream separator -->
+                <div class="cream-border cream-2"></div>
+
+                <!-- Bottom layer with pattern -->
+                <div class="cake-layer layer-bottom">
+                  <div class="cake-pattern">
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                    <div class="stripe"></div>
+                  </div>
+                  <div class="cake-text-bottom">Happy Birthday</div>
+                </div>
+
+                <!-- Plate with shadow -->
+                <div class="cake-plate"></div>
+                <div class="plate-shadow"></div>
+              </div>
+            </div>
+          </div>
+
+          <button id="blow-candles-btn" class="cake-blow-btn">
+            <span class="blow-icon">🕯️</span>
+            <span class="blow-text">Blow the Candles!</span>
+            <span class="blow-hint">Tap to make a wish</span>
+          </button>
+
+          <div id="cake-message" class="cake-celebration hidden">
+            <div class="celebration-card">
+              <div class="celebration-emoji">🎉🎂🎉</div>
+              <h3 class="celebration-title">Happy Birthday Siva!</h3>
+              <p class="celebration-msg">You deserve the world and more! May this year bring you endless happiness,
+                success, and all the beautiful things life has to offer! ✨</p>
+              <div class="celebration-stars">⭐ 🌟 ⭐</div>
+              <button class="btn-next celebration-btn" data-next="10">
+                <span>Final Surprise</span>
+                <span class="arrow-icon">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 10: Feedback -->
+      <section class="slide" id="slide-10">
+        <div class="hero-overlay-dark"></div>
+        <div class="slide-content glass"
+          style="padding: 3rem; max-width: 600px; text-align: center; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <h2 class="story-title" style="margin-bottom: 1rem; font-size: 2.5rem; text-align: center;">One Last Thing...
+            🥺</h2>
+          <p style="margin-bottom: 2rem; font-size: 1.1rem; color: #eee; line-height: 1.6; text-align: center;">
+            Eppadi irunthuchu intha kutti surprise? Unmai sollu!<br> (How did you feel about this website?)
+          </p>
+          <div class="feedback-form" style="width: 100%;">
+            <textarea id="feedback-message" class="premium-textarea" placeholder="Type your feelings here..." rows="4"
+              style="width: 100%; border-radius: 15px; padding: 1.5rem; resize: none; font-family: var(--font-main); font-size: 1.1rem; margin-bottom: 1.5rem; background: rgba(0, 0, 0, 0.2); color: #fff; border: 1px solid rgba(255, 105, 180, 0.4); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 0 15px rgba(255, 105, 180, 0.1); outline: none; transition: all 0.3s;"></textarea>
+            <button id="submit-feedback-btn" class="btn-premium"
+              style="width: 100%; padding: 1.2rem; font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 0;">Send to Me
+              🚀</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 11: Final Interaction -->
+      <section class="slide" id="slide-11">
+        <div class="fireworks-bg"></div>
+        <div id="fireworks-container"></div>
+        <div class="slide-content finale-content glass" style="padding: 3rem; max-width: 700px; margin: 0 auto;">
+          <h1 class="main-title finale-title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem;">Happy
+            Birthday di Siva! ❤️</h1>
+          <p class="final-msg finale-msg"
+            style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2.5rem; color: #eee;">
+            Intha naal unaku eppavume special ah irukanum nu thaan intha chinnna surprise try pannen. <br>
+            Nee ethirpakkura ellame unaku kedaikanum, eppavum sirichikitte, healthy ah, happy ah iru! <br><br>
+            <strong>What ever happens i will always be with you ✨</strong>
+          </p>
+          <button class="btn-premium btn-next restart-btn" data-next="1" style="padding: 1rem 3rem; font-size: 1.1rem;">Restart
+            Journey ↺</button>
+        </div>
+      </section>
+
+      <!-- Floating Decorations -->
+      <div id="floating-elements"></div>
+    </main>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
